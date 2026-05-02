@@ -48,6 +48,10 @@ body {
   color: #222222;
 }
 
+.center-text {
+  text-align: center;
+}
+
 /* Main page layout */
 .main-content {
   display: flex;
