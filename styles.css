@@ -131,10 +131,18 @@ p {
 }
 
 #techTip {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #222222;
+  font-size: 1.15rem;
+  max-width: 950px;
+  margin: 0 auto 20px auto;
+  color: #222;
 }
+
+
+#techTip {
+#  font-size: 1.2rem;
+ # margin-bottom: 20px;
+#  color: #222222;
+#}
 
 .highlight-tip {
   background-color: #dbeafe;
