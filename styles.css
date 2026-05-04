@@ -83,14 +83,21 @@ p {
   font-size: 1.05rem;
 }
 
-/* Regular page images */
+/* Overview image */
 .overview-section img {
   display: block;
   width: 100%;
-  max-width: 700px;
+  max-width: 850px;
   height: auto;
-  margin: 20px auto 0 auto;
-  border-radius: 12px;
+  margin: 25px auto 0 auto;
+  border-radius: 15px;
+  animation: fadeSlideUp 1.2s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overview-section img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Contact page image only */
@@ -134,28 +141,14 @@ p {
   font-size: 1.15rem;
   max-width: 950px;
   margin: 0 auto 20px auto;
-  color: #222;
+  color: #222222;
 }
-
-
-#techTip {
-#  font-size: 1.2rem;
- # margin-bottom: 20px;
-#  color: #222222;
-#}
 
 .highlight-tip {
   background-color: #dbeafe;
   border-radius: 8px;
   padding: 15px 25px;
 }
-  
-  
- # .highlight-tip {
- # background-color: #dbeafe;
- # border-radius: 8px;
-#  padding: 10px;
-#}
 
 .tip-section button {
   background-color: #1e64c8;
@@ -171,6 +164,155 @@ p {
   background-color: #144a91;
 }
 
+/* Robot container */
+.robot-container {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  text-align: center;
+}
+
+/* Speech bubble */
+.speech-bubble {
+  background-color: white;
+  color: #1e64c8;
+  border: 2px solid #1e64c8;
+  border-radius: 15px;
+  padding: 8px 12px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 12px;
+  position: relative;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  animation: bubbleBounce 1.5s ease-in-out infinite;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 35px;
+  border-width: 10px 8px 0 8px;
+  border-style: solid;
+  border-color: #1e64c8 transparent transparent transparent;
+}
+
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  right: 37px;
+  border-width: 8px 6px 0 6px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  z-index: 1;
+}
+
+/* Robot */
+.robot {
+  width: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.robot:hover {
+  animation: wiggle 0.6s ease-in-out;
+}
+
+.robot-head {
+  width: 70px;
+  height: 55px;
+  background-color: #d9f0ff;
+  border: 3px solid #1e64c8;
+  border-radius: 15px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.antenna {
+  width: 6px;
+  height: 18px;
+  background-color: #1e64c8;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.antenna::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #1e64c8;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  left: -3px;
+}
+
+.eyes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.eye {
+  width: 10px;
+  height: 10px;
+  background-color: #1e64c8;
+  border-radius: 50%;
+}
+
+.robot-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.body-panel {
+  width: 55px;
+  height: 60px;
+  background-color: #d9f0ff;
+  border: 3px solid #1e64c8;
+  border-radius: 12px;
+}
+
+.arm {
+  width: 12px;
+  height: 40px;
+  background-color: #1e64c8;
+  border-radius: 10px;
+  margin: 0 5px;
+  transform-origin: top center;
+}
+
+.robot-legs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.leg {
+  width: 12px;
+  height: 30px;
+  background-color: #1e64c8;
+  border-radius: 10px;
+}
+
+/* Robot animation classes */
+.robot.wave .right-arm {
+  animation: waveArm 0.5s ease-in-out 3;
+}
+
+.robot.jump {
+  animation: jumpRobot 0.7s ease;
+}
+
 /* Footer */
 .site-footer {
   background-color: #1f7a8c;
@@ -179,6 +321,91 @@ p {
   padding: 15px;
   font-family: "Trebuchet MS", Arial, sans-serif;
   font-size: 1rem;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bubbleBounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(4deg);
+  }
+
+  50% {
+    transform: rotate(-4deg);
+  }
+
+  75% {
+    transform: rotate(4deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes waveArm {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-35deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes jumpRobot {
+  0% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-25px);
+  }
+
+  60% {
+    transform: translateY(0);
+  }
+
+  80% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* Smaller screens */
@@ -215,32 +442,18 @@ p {
   p {
     font-size: 1rem;
   }
-}
 
-  .overview-section img {
-  display: block;
-  max-width: 850px;
-  width: 100%;
-  margin: 25px auto 0;
-  border-radius: 15px;
-
-  animation: fadeSlideUp 1.2s ease-out;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.overview-section img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
+  .robot-container {
+    bottom: 15px;
+    right: 15px;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .robot {
+    width: 80px;
+  }
+
+  .speech-bubble {
+    font-size: 0.75rem;
+    padding: 6px 10px;
   }
 }
