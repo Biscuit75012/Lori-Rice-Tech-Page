@@ -1,6 +1,3 @@
-console.log("index.js is loading");
-alert("index.js is connected");
-
 let tips = [
   "Always save your work before closing your browser.",
   "Use strong passwords and do not share them with others.",
@@ -13,13 +10,23 @@ let tips = [
 
 let techTip = document.getElementById("techTip");
 let tipButton = document.getElementById("tipButton");
+let robotTipImage = document.getElementById("robotTipImage");
 
-if (techTip && tipButton) {
-  tipButton.addEventListener("click", function () {
-    let randomIndex = Math.floor(Math.random() * tips.length);
-    techTip.textContent = tips[randomIndex];
-    techTip.classList.add("highlight-tip");
-  });
-} else {
-  console.log("The techTip paragraph or tipButton button was not found.");
+function showRandomTip() {
+  let randomIndex = Math.floor(Math.random() * tips.length);
+
+  techTip.textContent = tips[randomIndex];
+  techTip.classList.add("highlight-tip");
+
+  robotTipImage.classList.remove("robot-clicked");
+  void robotTipImage.offsetWidth;
+  robotTipImage.classList.add("robot-clicked");
 }
+
+if (techTip && tipButton && robotTipImage) {
+  tipButton.addEventListener("click", showRandomTip);
+  robotTipImage.addEventListener("click", showRandomTip);
+} else {
+  console.log("The tech tip paragraph, button, or robot image was not found.");
+}
+
