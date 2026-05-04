@@ -141,16 +141,19 @@ p {
 }
 
 #techTip {
-  font-size: 1.15rem;
-  max-width: 950px;
+  font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  max-width: 850px;
   margin: 0 auto 18px auto;
-  color: #222222;
+  color: #1b3555;
+  line-height: 1.5;
 }
 
 .highlight-tip {
   background-color: #dbeafe;
-  border-radius: 8px;
-  padding: 15px 25px;
+  border-radius: 10px;
+  padding: 14px 22px;
 }
 
 /* Robot tech tip image */
