@@ -216,3 +216,31 @@ p {
     font-size: 1rem;
   }
 }
+
+  .overview-section img {
+  display: block;
+  max-width: 850px;
+  width: 100%;
+  margin: 25px auto 0;
+  border-radius: 15px;
+
+  animation: fadeSlideUp 1.2s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overview-section img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
