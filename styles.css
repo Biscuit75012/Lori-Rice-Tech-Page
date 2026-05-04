@@ -132,16 +132,18 @@ p {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.tip-section h2 {
+.tip-heading {
   color: #1e64c8;
-  font-size: 2rem;
-  margin-bottom: 15px;
+  font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 12px;
 }
 
 #techTip {
   font-size: 1.15rem;
   max-width: 950px;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 18px auto;
   color: #222222;
 }
 
@@ -157,7 +159,7 @@ p {
   width: 100%;
   max-width: 260px;
   height: auto;
-  margin: 20px auto;
+  margin: 20px auto 10px auto;
   cursor: pointer;
   border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -247,6 +249,10 @@ p {
 
   h2 {
     font-size: 1.6rem;
+  }
+
+  .tip-heading {
+    font-size: 1.4rem;
   }
 
   p {
