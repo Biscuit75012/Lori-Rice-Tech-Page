@@ -29,21 +29,19 @@ let tips = [
 ];
 
 let techTip = document.getElementById("techTip");
-let robotTipImage = document.getElementById("robotTipImage");
+let tipButton = document.getElementById("tipButton");
 
-function showRandomTip() {
+let lastRandomIndex = -1;
+
+tipButton.addEventListener("click", function () {
   let randomIndex = Math.floor(Math.random() * tips.length);
 
+  while (randomIndex === lastRandomIndex) {
+    randomIndex = Math.floor(Math.random() * tips.length);
+  }
+
   techTip.textContent = tips[randomIndex];
+  lastRandomIndex = randomIndex;
+
   techTip.classList.add("highlight-tip");
-
-  robotTipImage.classList.remove("robot-clicked");
-  void robotTipImage.offsetWidth;
-  robotTipImage.classList.add("robot-clicked");
-}
-
-if (techTip && robotTipImage) {
-  robotTipImage.addEventListener("click", showRandomTip);
-} else {
-  console.log("The tech tip paragraph or robot image was not found.");
-}
+});
