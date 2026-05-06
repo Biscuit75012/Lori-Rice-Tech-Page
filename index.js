@@ -29,7 +29,6 @@ let tips = [
 ];
 
 let techTip = document.getElementById("techTip");
-let tipButton = document.getElementById("tipButton");
 let robotTipImage = document.getElementById("robotTipImage");
 
 let lastRandomIndex = -1;
@@ -48,9 +47,8 @@ function showRandomTip() {
   robotTipImage.classList.add("robot-clicked");
 }
 
-if (techTip && tipButton && robotTipImage) {
-  tipButton.addEventListener("click", showRandomTip);
+if (techTip && robotTipImage) {
   robotTipImage.addEventListener("click", showRandomTip);
 } else {
-  console.log("The tech tip paragraph, button, or robot image was not found.");
+  console.log("The tech tip paragraph or robot image was not found.");
 }
