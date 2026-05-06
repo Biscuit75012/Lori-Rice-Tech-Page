@@ -1,3 +1,4 @@
+alert("JavaScript is connected");
 let tips = [
   "Always save your work before closing your browser.",
   "Use strong passwords and do not share them with others.",
